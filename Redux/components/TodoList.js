@@ -6,6 +6,7 @@ import {
   Button,
   StyleSheet,
   TouchableOpacity,
+  StatusBar,
 } from "react-native";
 import { connect } from "react-redux";
 import { addTodo, removeTodo } from "../actions/todoActions";
@@ -29,6 +30,7 @@ const TodoList = ({ todos, addTodo, removeTodo }) => {
 
   return (
     <View style={styles.container}>
+      <StatusBar barStyle={"light-content"} backgroundColor={"#0049B7"} />
       <Text style={styles.title}>Todo List</Text>
       <TextInput
         style={styles.input}
@@ -38,7 +40,7 @@ const TodoList = ({ todos, addTodo, removeTodo }) => {
         placeholderTextColor="#B8B8B8"
       />
 
-      <Button title="Add" onPress={() => handleAddTodo()} color="#444444" />
+      <Button title="Add" onPress={() => handleAddTodo()} color="#0049B7" />
       {todos.map((todo) => (
         <View key={todo.id} style={styles.todoItem}>
           <Text style={styles.todoText}>{todo.text}</Text>
@@ -46,7 +48,8 @@ const TodoList = ({ todos, addTodo, removeTodo }) => {
             onPress={() => handleRemoveTodo(todo.id)}
             activeOpacity={0.9}
             style={{
-              backgroundColor: "#FF6961",
+              backgroundColor: "#FF1D58",
+
               width: 30,
               height: undefined,
               aspectRatio: 1,
@@ -59,6 +62,7 @@ const TodoList = ({ todos, addTodo, removeTodo }) => {
               style={{
                 fontSize: 14,
                 marginTop: -4,
+                color: "#FEFEFE",
               }}
             >
               ✖
@@ -95,17 +99,17 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 20,
-    color: "#444444",
+    color: "#0049B7",
   },
   input: {
     height: 40,
     borderWidth: 1,
-    borderColor: "#B8B8B8",
+    borderColor: "#444444",
     marginBottom: 10,
     paddingHorizontal: 10,
     borderRadius: 5,
     fontSize: 16,
-    color: "#444444",
+    color: "#0049B7",
   },
   todoItem: {
     flexDirection: "row",
@@ -128,6 +132,6 @@ const styles = StyleSheet.create({
   todoText: {
     fontSize: 18,
     marginRight: 10,
-    color: "#444444",
+    color: "#0049B7",
   },
 });

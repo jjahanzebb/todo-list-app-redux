@@ -1,9 +1,4 @@
-export const addTodo = (todo) => ({
-  type: "ADD_TODO",
-  payload: todo,
-});
+import { createAction } from "@reduxjs/toolkit";
 
-export const removeTodo = (id) => ({
-  type: "REMOVE_TODO",
-  payload: id,
-});
+export const addTodo = createAction("ADD_TODO");
+export const removeTodo = createAction("REMOVE_TODO");

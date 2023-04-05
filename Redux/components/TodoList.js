@@ -13,6 +13,14 @@ import {
 import { connect } from "react-redux";
 import { addTodo, removeTodo } from "../actions/todoActions";
 
+import {
+  BannerAd,
+  BannerAdSize,
+  TestIds,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = __DEV__ ? TestIds.BANNER : "REPLACE_WITH_YOUR_ID";
+
 const TodoList = ({ todos, addTodo, removeTodo }) => {
   const [text, setText] = useState("");
 
@@ -72,6 +80,14 @@ const TodoList = ({ todos, addTodo, removeTodo }) => {
           </TouchableOpacity>
         </View>
       ))}
+
+      <BannerAd
+        unitId={adUnitId}
+        size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+        requestOptions={{
+          requestNonPersonalizedAdsOnly: true,
+        }}
+      />
     </View>
   );
 };
